@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* File Preview Styles */
+.mt-6 {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
+}
+
+.preview-container {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.preview-panel {
+  flex: 1;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  height: 400px;
+}
+
+.preview-panel:hover {
+  position: absolute;
+  width: 90%;
+  height: 80vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.preview-content {
+  height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.preview-body {
+  height: calc(100% - 60px);
+  overflow: auto;
+  background: #f9fafb;
+}
+
+.pdf-preview {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.csv-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.csv-table th {
+  position: sticky;
+  top: 0;
+  background: #f3f4f6;
+  z-index: 1;
+}
+
+.preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.preview-panel:hover + .preview-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.file-preview {
+  position: relative;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.file-preview iframe {
+  border: none;
+  background: white;
+}
+
+.download-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #10B981;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.download-button:hover {
+  background: #059669;
+}
+
+.csv-preview {
+  background: white;
+  min-height: 600px;
+}
+
+.preview-panel h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #374151;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mt-6 {
+    flex-direction: column;
+  }
+  
+  .preview-container {
+    flex-direction: column;
+  }
+  
+  .preview-panel {
+    width: 100%;
+  }
+  
+  .preview-panel:hover {
+    width: 95%;
+  }
+}
